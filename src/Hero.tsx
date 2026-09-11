@@ -59,7 +59,7 @@ export function Hero() {
         <div className="relative mx-auto w-full max-w-md">
           <div className="absolute inset-x-8 top-8 h-40 rounded-full bg-sky-mid/80 blur-2xl" />
           <div className="relative overflow-hidden rounded-[2rem] border border-white bg-white/90 p-8 shadow-[0_24px_60px_rgba(44,92,165,0.12)]">
-            <img src="/logo.png" alt={`${brand.name} ${brand.tagline}`} className="mx-auto w-full max-w-xs" />
+            <img src="/logo.png" alt={`${brand.name} ${brand.tagline}`} className="mx-auto w-[118%] max-w-none -translate-x-[8%] scale-105" />
             <div className="mt-4 rounded-2xl bg-royal px-4 py-3 text-center text-white">
               <p className="text-xs font-medium uppercase tracking-[0.18em] text-white/80">{brand.ceoTitle}</p>
               <p className="mt-1 text-lg font-bold">{brand.ceo}</p>

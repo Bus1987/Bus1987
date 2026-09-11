@@ -60,7 +60,7 @@ export function Footer() {
           </ul>
         </div>
       </div>
-      <div className="border-t border-white/10 py-4 text-center text-xs text-white/50">
+      <div className="border-t border-white/10 py-4 pb-24 text-center text-xs text-white/50">
         © {new Date().getFullYear()} {brand.name} · {brand.location}
       </div>
     </footer>

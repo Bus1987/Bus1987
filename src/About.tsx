@@ -57,7 +57,7 @@ function BusinessCard() {
           </li>
         </ul>
         <div className="text-center">
-          <img src="/logo.png" alt="" className="mx-auto h-24 w-24 object-contain" />
+          <img src="/logo-mark.svg" alt="" className="mx-auto h-20 w-20 object-contain" />
           <p className="mt-1 text-xs font-extrabold tracking-wide">{brand.name}</p>
           <p className="text-[11px] font-medium text-royal">{brand.tagline}</p>
           <div className="mt-3 grid grid-cols-3 gap-2">
