@@ -1,0 +1,68 @@
+import { brand, emailHref, phoneHref } from './brand'
+import { LineIcon } from './icons'
+
+const links = [
+  { href: '#services', label: 'บริการ' },
+  { href: '#why-us', label: 'จุดเด่น' },
+  { href: '#process', label: 'ขั้นตอน' },
+  { href: '#about', label: 'เกี่ยวกับเรา' },
+  { href: '#contact', label: 'ติดต่อ' },
+]
+
+export function Footer() {
+  return (
+    <footer className="bg-ink text-white">
+      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[1.2fr_0.8fr_0.8fr]">
+        <div>
+          <div className="flex items-center gap-3">
+            <img src="/logo-mark.svg" alt="" className="h-12 w-12 rounded-full bg-white object-cover" />
+            <div>
+              <p className="font-extrabold tracking-wide">{brand.name}</p>
+              <p className="text-sm text-sky">{brand.tagline}</p>
+            </div>
+          </div>
+          <p className="mt-4 max-w-sm text-sm leading-relaxed text-white/70">
+            ซ่อมคอมพิวเตอร์ โน้ตบุ๊ก ลงโปรแกรม ติดตั้ง อัปเกรด และไอทีครบวงจร ที่{brand.locationTh}
+          </p>
+        </div>
+        <div>
+          <p className="text-sm font-semibold text-sky">หน้าเว็บ</p>
+          <ul className="mt-3 space-y-2 text-sm text-white/80">
+            {links.map((link) => (
+              <li key={link.href}>
+                <a href={link.href} className="hover:text-white">
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <p className="text-sm font-semibold text-sky">ติดต่อ</p>
+          <ul className="mt-3 space-y-2 text-sm text-white/80">
+            <li>
+              <a href={phoneHref} className="hover:text-white">
+                {brand.phoneDisplay}
+              </a>
+            </li>
+            <li>
+              <a href={emailHref} className="break-all hover:text-white">
+                {brand.email}
+              </a>
+            </li>
+            <li>
+              <a href={brand.lineUrl} className="inline-flex items-center gap-2 hover:text-white">
+                <LineIcon className="h-4 w-4 text-line" />
+                LINE {brand.lineId}
+              </a>
+            </li>
+            <li>{brand.location}</li>
+          </ul>
+        </div>
+      </div>
+      <div className="border-t border-white/10 py-4 text-center text-xs text-white/50">
+        © {new Date().getFullYear()} {brand.name} · {brand.location}
+      </div>
+    </footer>
+  )
+}

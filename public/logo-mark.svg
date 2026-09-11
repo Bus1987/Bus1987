@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="logoTitle">
+  <title id="logoTitle">PROCOM SERVICES Digital Technologies</title>
+  <!-- sky dome -->
+  <path d="M96 278c0-88.4 71.6-160 160-160s160 71.6 160 160H96Z" fill="#e6f1fb"/>
+  <g fill="none" stroke="#2c5ca5" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <!-- monitor -->
+    <rect x="148" y="168" width="152" height="118" rx="18"/>
+    <!-- wifi -->
+    <path d="M186 214c16.5-20 43-30.5 70-30.5"/>
+    <path d="M200 230c11-13.5 28.5-20.5 47-20.5"/>
+    <path d="M216 246c5.5-7 14-10.5 23.5-10.5"/>
+    <!-- laptop -->
+    <rect x="244" y="216" width="140" height="98" rx="16"/>
+    <path d="M258 300h112"/>
+  </g>
+  <path d="M136 328h268" fill="none" stroke="#2c5ca5" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="136" cy="328" r="8" fill="#2c5ca5"/>
+  <circle cx="404" cy="328" r="8" fill="#2c5ca5"/>
+</svg>

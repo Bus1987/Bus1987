@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 560" role="img" aria-label="PROCOM SERVICES Digital Technologies">
+  <rect width="512" height="560" fill="#ffffff"/>
+  <path d="M96 278c0-88.4 71.6-160 160-160s160 71.6 160 160H96Z" fill="#e6f1fb"/>
+  <g fill="none" stroke="#2c5ca5" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="148" y="168" width="152" height="118" rx="18"/>
+    <path d="M186 214c16.5-20 43-30.5 70-30.5"/>
+    <path d="M200 230c11-13.5 28.5-20.5 47-20.5"/>
+    <path d="M216 246c5.5-7 14-10.5 23.5-10.5"/>
+    <rect x="244" y="216" width="140" height="98" rx="16"/>
+    <path d="M258 300h112"/>
+  </g>
+  <path d="M136 328h268" fill="none" stroke="#2c5ca5" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="136" cy="328" r="8" fill="#2c5ca5"/>
+  <circle cx="404" cy="328" r="8" fill="#2c5ca5"/>
+  <text x="256" y="430" text-anchor="middle" font-family="Montserrat, 'Arial Black', Arial, sans-serif" font-size="32" font-weight="800" fill="#111827">PROCOM SERVICES</text>
+  <text x="256" y="468" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="16" font-weight="600" fill="#2c5ca5">Digital Technologies</text>
+</svg>

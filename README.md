@@ -1,16 +1,45 @@
-## Hi there 👋
+# PROCOM SERVICES
 
-<!--
-**Bus1987/Bus1987** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+เว็บไซต์การตลาดของ **PROCOM SERVICES** (Digital Technologies) สำหรับซ่อมคอมพิวเตอร์ โน้ตบุ๊ก ลงโปรแกรม ติดตั้ง อัปเกรด และไอทีครบวงจร ที่ระยอง
 
-Here are some ideas to get you started:
+สแตก: Vite + React + TypeScript + Tailwind CSS  
+บิลด์: `npm run build` → โฟลเดอร์ `dist`  
+ดีพลอย: Vercel ซิงก์กับ GitHub repo นี้ (โปรเจกต์ `Bus1987`)
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+## ติดต่อ
+
+- **บริษัท:** PROCOM SERVICES / Digital Technologies
+- **CEO:** Panyakorn Panngam
+- **โทร:** [095-914-2416](tel:+66959142416)
+- **อีเมล:** [procomservices1987@gmail.com](mailto:procomservices1987@gmail.com)
+- **เว็บ:** [www.procomservices.co.th](https://www.procomservices.co.th)
+- **ที่ตั้ง:** Rayong, Thailand
+- **LINE:** [@462ysyuy](https://line.me/R/ti/p/@462ysyuy)
+
+## พัฒนาในเครื่อง
+
+```bash
+npm install
+npm run dev
+```
+
+เปิดที่ `http://localhost:5173`
+
+## บิลด์สำหรับโปรดักชัน
+
+```bash
+npm run build
+npm run preview
+```
+
+`vercel.json` ตั้ง SPA rewrite ไปที่ `index.html`
+
+## Vercel
+
+โปรเจกต์นี้ตั้งค่าให้ Vercel ตรวจจับ Vite ได้เอง:
+
+- Framework: Vite
+- Build command: `npm run build`
+- Output directory: `dist`
+
+เมื่อ push ไปที่ `main` (สาขาที่ Vercel ซิงก์อยู่) จะดีพลอยอัตโนมัติ จากนั้นผูกโดเมน `www.procomservices.co.th` ได้ในแดชบอร์ด Vercel
