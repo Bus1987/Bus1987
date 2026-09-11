@@ -12,7 +12,7 @@
 - **CEO:** Panyakorn Panngam
 - **โทร:** [095-914-2416](tel:+66959142416)
 - **อีเมล:** [procomservices1987@gmail.com](mailto:procomservices1987@gmail.com)
-- **เว็บ:** [www.procomservices.co.th](https://www.procomservices.co.th)
+- **เว็บ:** [https://bus1987.vercel.app](https://bus1987.vercel.app)
 - **ที่ตั้ง:** Rayong, Thailand
 - **LINE:** [@462ysyuy](https://line.me/R/ti/p/@462ysyuy)
 
@@ -42,4 +42,4 @@ npm run preview
 - Build command: `npm run build`
 - Output directory: `dist`
 
-เมื่อ push ไปที่ `main` (สาขาที่ Vercel ซิงก์อยู่) จะดีพลอยอัตโนมัติ จากนั้นผูกโดเมน `www.procomservices.co.th` ได้ในแดชบอร์ด Vercel
+เมื่อ push ไปที่ `main` (สาขาที่ Vercel ซิงก์อยู่) จะดีพลอยอัตโนมัติที่ [https://bus1987.vercel.app](https://bus1987.vercel.app)

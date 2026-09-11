@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.procomservices.co.th/sitemap.xml
+Sitemap: https://bus1987.vercel.app/sitemap.xml

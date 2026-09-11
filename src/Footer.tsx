@@ -56,6 +56,11 @@ export function Footer() {
                 LINE {brand.lineId}
               </a>
             </li>
+            <li>
+              <a href={brand.webUrl} className="hover:text-white">
+                {brand.webDisplay}
+              </a>
+            </li>
             <li>{brand.location}</li>
           </ul>
         </div>
