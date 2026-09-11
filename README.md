@@ -3,6 +3,7 @@
 เว็บไซต์การตลาดของ **PROCOM SERVICES** (Digital Technologies) สำหรับซ่อมคอมพิวเตอร์ โน้ตบุ๊ก ลงโปรแกรม ติดตั้ง อัปเกรด และไอทีครบวงจร ที่ระยอง
 
 สแตก: Vite + React + TypeScript + Tailwind CSS  
+ภาษา: สลับไทย / อังกฤษ ในแถบเมนู (ค่าเริ่มต้นไทย บันทึกใน localStorage)  
 บิลด์: `npm run build` → โฟลเดอร์ `dist`  
 ดีพลอย: Vercel ซิงก์กับ GitHub repo นี้ (โปรเจกต์ `Bus1987`)
 

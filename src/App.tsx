@@ -3,19 +3,22 @@ import { Contact } from './Contact'
 import { FloatingLine } from './FloatingLine'
 import { Footer } from './Footer'
 import { Hero } from './Hero'
+import { useI18n } from './i18n'
 import { Navbar } from './Navbar'
 import { Process } from './Process'
 import { Services } from './Services'
 import { WhyUs } from './WhyUs'
 
 export default function App() {
+  const { copy } = useI18n()
+
   return (
     <div className="min-h-screen bg-white">
       <a
         href="#services"
         className="sr-only left-4 top-4 z-[60] rounded-full bg-royal px-4 py-2 text-white focus:not-sr-only focus:absolute"
       >
-        ข้ามไปยังเนื้อหา
+        {copy.skipToContent}
       </a>
       <Navbar />
       <main>

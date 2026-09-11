@@ -1,71 +1,35 @@
-const services = [
-  {
-    title: 'ซ่อมคอมพิวเตอร์ตั้งโต๊ะ',
-    desc: 'ตรวจเช็คอาการเครื่อง PC แก้ปัญหาเปิดไม่ติด ช้า ร้อน หรือใช้งานไม่เสถียร ให้พร้อมกลับมาทำงาน',
-    icon: MonitorIcon,
-  },
-  {
-    title: 'ซ่อมโน้ตบุ๊ก',
-    desc: 'ดูแลโน้ตบุ๊กทั้งเครื่องร้อน แบต หน้าจอ คีย์บอร์ด และอาการใช้งานทั่วไปที่เจอในชีวิตประจำวัน',
-    icon: LaptopIcon,
-  },
-  {
-    title: 'Windows และซอฟต์แวร์',
-    desc: 'ลงวินโดว์ ลงโปรแกรม แก้ระบบช้า ตั้งค่าการใช้งาน และจัดเครื่องให้พร้อมใช้งานจริง',
-    icon: WindowIcon,
-  },
-  {
-    title: 'อัปเกรด RAM / SSD',
-    desc: 'เพิ่มแรม เปลี่ยน SSD เพื่อให้เปิดเครื่องเร็วขึ้น ทำงานหลายโปรแกรมได้ลื่นขึ้น',
-    icon: ChipIcon,
-  },
-  {
-    title: 'ทำความสะอาดเครื่อง',
-    desc: 'เป่าฝุ่น ดูแลระบบระบายความร้อน และจัดระเบียบภายในเครื่อง ลดร้อน ลดเสียงดัง',
-    icon: SparkIcon,
-  },
-  {
-    title: 'ที่ปรึกษาด้านคอมพิวเตอร์',
-    desc: 'คุยอาการเครื่อง วางแผนอัปเกรด หรือเลือกแนวทางซ่อม/ติดตั้งให้เหมาะกับการใช้งาน',
-    icon: ChatIcon,
-  },
-  {
-    title: 'IT Support',
-    desc: 'สนับสนุนการใช้งานคอมพิวเตอร์และระบบเบื้องต้น สำหรับบ้านและธุรกิจขนาดเล็ก',
-    icon: HeadsetIcon,
-  },
-  {
-    title: 'บริการครบวงจร',
-    desc: 'ตั้งแต่ตรวจเช็ค ซ่อม ติดตั้ง อัปเกรด ไปจนถึงทดสอบส่งมอบพร้อมคำแนะนำการดูแลต่อ',
-    icon: CycleIcon,
-  },
-]
+import { useI18n } from './i18n'
+
+const serviceIcons = [MonitorIcon, LaptopIcon, WindowIcon, ChipIcon, SparkIcon, ChatIcon, HeadsetIcon, CycleIcon]
 
 export function Services() {
+  const { copy } = useI18n()
+
   return (
     <section id="services" className="bg-white py-16 sm:py-20">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="max-w-2xl">
-          <p className="text-sm font-semibold tracking-wide text-royal">บริการ</p>
-          <h2 className="mt-2 text-3xl font-extrabold text-ink sm:text-4xl">ดูแลคอมพิวเตอร์ครบทุกงานที่ใช้งานจริง</h2>
-          <p className="mt-3 text-muted">
-            รับงานซ่อม ติดตั้ง อัปเกรด และให้คำปรึกษา โดยเน้นอธิบายภาษาเข้าใจง่าย ไม่ยัดเยียดรายการที่ไม่จำเป็น
-          </p>
+          <p className="text-sm font-semibold tracking-wide text-royal">{copy.services.eyebrow}</p>
+          <h2 className="mt-2 text-3xl font-extrabold text-ink sm:text-4xl">{copy.services.title}</h2>
+          <p className="mt-3 text-muted">{copy.services.intro}</p>
         </div>
 
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {services.map((service) => (
-            <article
-              key={service.title}
-              className="group rounded-3xl border border-sky-mid bg-sky/40 p-5 transition hover:-translate-y-0.5 hover:border-royal/25 hover:bg-white hover:shadow-[0_16px_40px_rgba(44,92,165,0.1)]"
-            >
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white text-royal ring-1 ring-sky-mid">
-                <service.icon />
-              </div>
-              <h3 className="mt-4 text-lg font-bold text-ink">{service.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted">{service.desc}</p>
-            </article>
-          ))}
+          {copy.services.items.map((service, index) => {
+            const Icon = serviceIcons[index]
+            return (
+              <article
+                key={service.title}
+                className="group rounded-3xl border border-sky-mid bg-sky/40 p-5 transition hover:-translate-y-0.5 hover:border-royal/25 hover:bg-white hover:shadow-[0_16px_40px_rgba(44,92,165,0.1)]"
+              >
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white text-royal ring-1 ring-sky-mid">
+                  {Icon ? <Icon /> : null}
+                </div>
+                <h3 className="mt-4 text-lg font-bold text-ink">{service.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted">{service.desc}</p>
+              </article>
+            )
+          })}
         </div>
       </div>
     </section>

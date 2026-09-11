@@ -1,16 +1,19 @@
 import { type FormEvent } from 'react'
 import { brand, emailHref, phoneHref } from './brand'
+import { useI18n } from './i18n'
 import { GlobeIcon, LineIcon, MailIcon, PhoneIcon, PinIcon } from './icons'
 
 export function Contact() {
+  const { copy } = useI18n()
+
   function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
     const data = new FormData(event.currentTarget)
     const name = String(data.get('name') ?? '').trim()
     const phone = String(data.get('phone') ?? '').trim()
     const message = String(data.get('message') ?? '').trim()
-    const subject = encodeURIComponent(`ติดต่อ ${brand.name}`)
-    const body = encodeURIComponent(`ชื่อ: ${name}\nโทร: ${phone}\n\n${message}`)
+    const subject = encodeURIComponent(copy.contact.mailSubject)
+    const body = encodeURIComponent(`${copy.contact.mailName}: ${name}\n${copy.contact.mailPhone}: ${phone}\n\n${message}`)
     window.location.href = `${emailHref}?subject=${subject}&body=${body}`
   }
 
@@ -18,11 +21,9 @@ export function Contact() {
     <section id="contact" className="bg-sky py-16 sm:py-20">
       <div className="mx-auto grid max-w-6xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.95fr_1.05fr]">
         <div>
-          <p className="text-sm font-semibold tracking-wide text-royal">ติดต่อ</p>
-          <h2 className="mt-2 text-3xl font-extrabold text-ink sm:text-4xl">พร้อมรับเรื่องซ่อมและให้คำปรึกษา</h2>
-          <p className="mt-3 text-muted">
-            ใช้ช่องทางตามนามบัตรได้เลย ทั้งโทร อีเมล เว็บไซต์ และ LINE {brand.lineId}
-          </p>
+          <p className="text-sm font-semibold tracking-wide text-royal">{copy.contact.eyebrow}</p>
+          <h2 className="mt-2 text-3xl font-extrabold text-ink sm:text-4xl">{copy.contact.title}</h2>
+          <p className="mt-3 text-muted">{copy.contact.intro}</p>
 
           <div className="mt-8 grid gap-3">
             <a href={phoneHref} className="flex items-center gap-3 rounded-2xl bg-white p-4 ring-1 ring-sky-mid transition hover:ring-royal/30">
@@ -30,7 +31,7 @@ export function Contact() {
                 <PhoneIcon className="h-5 w-5" />
               </span>
               <span>
-                <span className="block text-xs font-semibold text-muted">โทร</span>
+                <span className="block text-xs font-semibold text-muted">{copy.contact.phone}</span>
                 <span className="font-bold text-ink">{brand.phoneDisplay}</span>
               </span>
             </a>
@@ -39,7 +40,7 @@ export function Contact() {
                 <MailIcon className="h-5 w-5" />
               </span>
               <span>
-                <span className="block text-xs font-semibold text-muted">อีเมล</span>
+                <span className="block text-xs font-semibold text-muted">{copy.contact.email}</span>
                 <span className="break-all font-bold text-ink">{brand.email}</span>
               </span>
             </a>
@@ -48,7 +49,7 @@ export function Contact() {
                 <LineIcon className="h-5 w-5" />
               </span>
               <span>
-                <span className="block text-xs font-semibold text-muted">LINE</span>
+                <span className="block text-xs font-semibold text-muted">{copy.contact.line}</span>
                 <span className="font-bold text-ink">{brand.lineId}</span>
               </span>
             </a>
@@ -57,7 +58,7 @@ export function Contact() {
                 <GlobeIcon className="h-5 w-5" />
               </span>
               <span>
-                <span className="block text-xs font-semibold text-muted">เว็บไซต์</span>
+                <span className="block text-xs font-semibold text-muted">{copy.contact.website}</span>
                 <span className="font-bold text-ink">{brand.webDisplay}</span>
               </span>
             </a>
@@ -66,7 +67,7 @@ export function Contact() {
                 <PinIcon className="h-5 w-5" />
               </span>
               <span>
-                <span className="block text-xs font-semibold text-muted">ที่ตั้ง</span>
+                <span className="block text-xs font-semibold text-muted">{copy.contact.location}</span>
                 <span className="font-bold text-ink">{brand.location}</span>
               </span>
             </div>
@@ -74,10 +75,10 @@ export function Contact() {
         </div>
 
         <form className="rounded-[1.8rem] bg-white p-6 shadow-sm ring-1 ring-sky-mid sm:p-8" onSubmit={onSubmit}>
-          <h3 className="text-xl font-bold text-ink">ส่งข้อความทางอีเมล</h3>
-          <p className="mt-1 text-sm text-muted">ฟอร์มนี้จะเปิดโปรแกรมอีเมลของคุณไปที่ {brand.email}</p>
+          <h3 className="text-xl font-bold text-ink">{copy.contact.formTitle}</h3>
+          <p className="mt-1 text-sm text-muted">{copy.contact.formHint}</p>
           <label className="mt-6 block text-sm font-medium text-ink">
-            ชื่อ
+            {copy.contact.name}
             <input
               name="name"
               required
@@ -85,7 +86,7 @@ export function Contact() {
             />
           </label>
           <label className="mt-4 block text-sm font-medium text-ink">
-            เบอร์โทร
+            {copy.contact.phoneField}
             <input
               name="phone"
               required
@@ -93,7 +94,7 @@ export function Contact() {
             />
           </label>
           <label className="mt-4 block text-sm font-medium text-ink">
-            รายละเอียด
+            {copy.contact.details}
             <textarea
               name="message"
               required
@@ -105,7 +106,7 @@ export function Contact() {
             type="submit"
             className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-royal px-5 py-3 text-sm font-semibold text-white transition hover:bg-royal-dark"
           >
-            เปิดอีเมลเพื่อส่งข้อความ
+            {copy.contact.submit}
           </button>
         </form>
       </div>

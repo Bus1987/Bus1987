@@ -1,15 +1,11 @@
 import { brand, emailHref, phoneHref } from './brand'
+import { navLinks, useI18n } from './i18n'
 import { LineIcon } from './icons'
 
-const links = [
-  { href: '#services', label: 'บริการ' },
-  { href: '#why-us', label: 'จุดเด่น' },
-  { href: '#process', label: 'ขั้นตอน' },
-  { href: '#about', label: 'เกี่ยวกับเรา' },
-  { href: '#contact', label: 'ติดต่อ' },
-]
-
 export function Footer() {
+  const { copy } = useI18n()
+  const links = navLinks(copy)
+
   return (
     <footer className="bg-ink text-white">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[1.2fr_0.8fr_0.8fr]">
@@ -21,12 +17,10 @@ export function Footer() {
               <p className="text-sm text-sky">{brand.tagline}</p>
             </div>
           </div>
-          <p className="mt-4 max-w-sm text-sm leading-relaxed text-white/70">
-            ซ่อมคอมพิวเตอร์ โน้ตบุ๊ก ลงโปรแกรม ติดตั้ง อัปเกรด และไอทีครบวงจร ที่{brand.locationTh}
-          </p>
+          <p className="mt-4 max-w-sm text-sm leading-relaxed text-white/70">{copy.footer.blurb}</p>
         </div>
         <div>
-          <p className="text-sm font-semibold text-sky">หน้าเว็บ</p>
+          <p className="text-sm font-semibold text-sky">{copy.footer.pages}</p>
           <ul className="mt-3 space-y-2 text-sm text-white/80">
             {links.map((link) => (
               <li key={link.href}>
@@ -38,7 +32,7 @@ export function Footer() {
           </ul>
         </div>
         <div>
-          <p className="text-sm font-semibold text-sky">ติดต่อ</p>
+          <p className="text-sm font-semibold text-sky">{copy.footer.contact}</p>
           <ul className="mt-3 space-y-2 text-sm text-white/80">
             <li>
               <a href={phoneHref} className="hover:text-white">

@@ -1,17 +1,12 @@
 import { useState } from 'react'
 import { brand, emailHref, phoneHref } from './brand'
+import { LanguageToggle, navLinks, useI18n } from './i18n'
 import { CloseIcon, LineIcon, MenuIcon, PhoneIcon } from './icons'
-
-const links = [
-  { href: '#services', label: 'บริการ' },
-  { href: '#why-us', label: 'จุดเด่น' },
-  { href: '#process', label: 'ขั้นตอน' },
-  { href: '#about', label: 'เกี่ยวกับเรา' },
-  { href: '#contact', label: 'ติดต่อ' },
-]
 
 export function Navbar() {
   const [open, setOpen] = useState(false)
+  const { copy } = useI18n()
+  const links = navLinks(copy)
 
   function close() {
     setOpen(false)
@@ -28,7 +23,7 @@ export function Navbar() {
           </span>
         </a>
 
-        <nav className="hidden items-center gap-6 lg:flex" aria-label="หลัก">
+        <nav className="hidden items-center gap-6 lg:flex" aria-label={copy.navAria}>
           {links.map((link) => (
             <a key={link.href} href={link.href} className="text-sm font-medium text-ink/80 transition hover:text-royal">
               {link.label}
@@ -37,6 +32,7 @@ export function Navbar() {
         </nav>
 
         <div className="hidden items-center gap-2 md:flex">
+          <LanguageToggle />
           <a
             href={phoneHref}
             className="inline-flex items-center gap-1.5 rounded-full border border-royal/20 px-3 py-2 text-sm font-semibold text-royal transition hover:bg-sky"
@@ -53,21 +49,24 @@ export function Navbar() {
           </a>
         </div>
 
-        <button
-          type="button"
-          className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-sky-mid text-royal md:hidden"
-          aria-expanded={open}
-          aria-controls="mobile-nav"
-          aria-label={open ? 'ปิดเมนู' : 'เปิดเมนู'}
-          onClick={() => setOpen((value) => !value)}
-        >
-          {open ? <CloseIcon className="h-5 w-5" /> : <MenuIcon className="h-5 w-5" />}
-        </button>
+        <div className="flex items-center gap-2 md:hidden">
+          <LanguageToggle />
+          <button
+            type="button"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-sky-mid text-royal"
+            aria-expanded={open}
+            aria-controls="mobile-nav"
+            aria-label={open ? copy.closeMenu : copy.openMenu}
+            onClick={() => setOpen((value) => !value)}
+          >
+            {open ? <CloseIcon className="h-5 w-5" /> : <MenuIcon className="h-5 w-5" />}
+          </button>
+        </div>
       </div>
 
       {open ? (
         <div id="mobile-nav" className="border-t border-sky-mid bg-white px-4 py-4 md:hidden">
-          <nav className="grid gap-1" aria-label="มือถือ">
+          <nav className="grid gap-1" aria-label={copy.navMobileAria}>
             {links.map((link) => (
               <a
                 key={link.href}
@@ -79,17 +78,20 @@ export function Navbar() {
               </a>
             ))}
           </nav>
+          <div className="mt-3 flex justify-center">
+            <LanguageToggle />
+          </div>
           <div className="mt-3 grid gap-2">
             <a href={phoneHref} className="inline-flex items-center justify-center gap-2 rounded-full bg-royal px-4 py-2.5 text-sm font-semibold text-white">
               <PhoneIcon className="h-4 w-4" />
-              โทร {brand.phoneDisplay}
+              {copy.call} {brand.phoneDisplay}
             </a>
             <a href={emailHref} className="inline-flex items-center justify-center gap-2 rounded-full border border-royal/20 px-4 py-2.5 text-sm font-semibold text-royal">
-              อีเมล
+              {copy.email}
             </a>
             <a href={brand.lineUrl} className="inline-flex items-center justify-center gap-2 rounded-full bg-line px-4 py-2.5 text-sm font-semibold text-white">
               <LineIcon className="h-4 w-4" />
-              แชท LINE {brand.lineId}
+              {copy.chatLine} {brand.lineId}
             </a>
           </div>
         </div>
